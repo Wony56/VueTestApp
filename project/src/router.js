@@ -4,6 +4,7 @@ import PortfolioPage from "@/views/PortfolioPage";
 import UserPage from "@/views/UserPage";
 import UserPosts from "@/components/UserPosts";
 import UserProfile from "@/components/UserProfile";
+import Firebase from 'firebase'
 
 const routes = [
   {
@@ -36,7 +37,7 @@ const routes = [
     },
     beforeEnter: (to, from, next) => {
       if (to.matched.some(record => record.meta.requiresAuth)) {
-        if (true) {
+        if (!Firebase.auth().currentUser) {
           alert("로그인이 필요한 서비스입니다.");
           next("/");
         } else {
