@@ -4,23 +4,22 @@ import "./plugins/vuetify";
 import App from "./App.vue";
 
 import { router } from "./router";
-import { store } from "./store/store";
 
-import firebase from 'firebase';
+import firebase from "firebase";
+import { store } from "./store/store";
 
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
 
-new Vue({
-  store,
-  router,
-  created(){
-    if(firebase.auth().currentUser != null){
-      store.state.auth.loggedIn = true;
-    }else{
-      store.state.auth.loggedIn = false;
-    }
-  },
-  render: h => h(App)
-}).$mount("#app");
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    store.state.auth.loggedIn = true;
+    store.state.auth.user = user;
+  }
+  new Vue({
+    store,
+    router,
+    render: h => h(App)
+  }).$mount("#app");
+});

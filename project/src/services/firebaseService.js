@@ -1,4 +1,5 @@
 import Firebase from "firebase";
+import { router } from "../router";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAH-cHShN1MCm-Mu90BLTARB4qGW73d9n8",
@@ -18,21 +19,21 @@ export default {
     return Firebase.auth()
       .signInWithPopup(provider)
       .then(result => {
-        console.log(result);
         return result;
       })
       .catch(error => {
-        console.log(error.message);
+        error.message;
+        alert(error.message);
       });
   },
   signOut() {
     Firebase.auth()
       .signOut()
       .then(() => {
-        console.log("SingOut Success!");
+        router.replace("/");
       })
       .catch(error => {
-        console.log(error.message);
+        alert(error.message);
       });
   }
 };
