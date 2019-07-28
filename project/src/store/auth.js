@@ -1,7 +1,7 @@
 import FirebaseService from "../services/firebaseService";
 
 const state = {
-  user: {},
+  user: "",
   loggedIn: false
 };
 
