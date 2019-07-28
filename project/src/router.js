@@ -47,18 +47,6 @@ const routes = [
     meta: {
       requiresAuth: true
     }
-    // beforeEnter: (to, from, next) => {
-    //   if (to.matched.some(record => record.meta.requiresAuth)) {
-    //     if (!auth.state.loggedIn) {
-    //       alert("로그인이 필요한 서비스입니다.");
-    //       next("/");
-    //     } else {
-    //       next();
-    //     }
-    //   } else {
-    //     next();
-    //   }
-    // }
   }
 ];
 
