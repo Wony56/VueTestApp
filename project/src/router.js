@@ -8,7 +8,6 @@ import PortfolioPage from "@/views/PortfolioPage";
 import UserPage from "@/views/UserPage";
 import UserPosts from "@/components/UserPosts";
 import UserProfile from "@/components/UserProfile";
-import Firebase from "firebase";
 
 const routes = [
   {

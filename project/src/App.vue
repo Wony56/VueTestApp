@@ -1,6 +1,8 @@
 <template>
   <v-app>
     <Header />
+    <LoginSnackbar />
+    <LogoutSnackbar />
 
     <v-content>
       <router-view></router-view>
@@ -10,16 +12,15 @@
 
 <script>
 import Header from "./components/Header";
+import LoginSnackbar from "./components/snackbar/LoginSnackbar";
+import LogoutSnackbar from "./components/snackbar/LogoutSnackbar";
 
 export default {
   name: "App",
   components: {
-    Header
-  },
-  data() {
-    return {
-      //
-    };
+    Header,
+    LoginSnackbar,
+    LogoutSnackbar
   }
 };
 </script>

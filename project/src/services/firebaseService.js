@@ -14,7 +14,7 @@ const firebaseConfig = {
 Firebase.initializeApp(firebaseConfig);
 
 export default {
-  async signInWithGoogle() {
+  signInWithGoogle() {
     let provider = new Firebase.auth.GoogleAuthProvider();
     return Firebase.auth()
       .signInWithPopup(provider)
@@ -26,12 +26,9 @@ export default {
         alert(error.message);
       });
   },
-  async signOut() {
-    await Firebase.auth()
+  signOut() {
+    return Firebase.auth()
       .signOut()
-      .then(() => {
-        router.replace("/");
-      })
       .catch(error => {
         alert(error.message);
       });
